@@ -1,6 +1,6 @@
-defmodule Issues do
+defmodule Doctors do
   @moduledoc """
-  Documentation for Issues.
+  Documentation for Doctors.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule Issues do
 
   ## Examples
 
-      iex> Issues.hello()
+      iex> Doctors.hello()
       :world
 
   """

@@ -1,8 +1,8 @@
 defmodule CliTest do 
   use ExUnit.Case
-  doctest Issues 
+  doctest Doctors 
 
-  import Issues.CLI, only: [parse_args: 1]
+  import Doctors.CLI, only: [parse_args: 1]
 
   test ":help returned" do 
     assert parse_args(["-h", "anything"]) == :help
@@ -10,10 +10,10 @@ defmodule CliTest do
   end
 
   test ":three values returned  if three given" do 
-    assert  parse_args(["user", "project", "99"]) == {"user", "project", 99}
+    assert  parse_args(["firstName", "lastName"]) == {"firstName", "lastName"}
   end 
 
-  test "count is default" do
-    assert parse_args(["user", "project"]) == {"user", "project", 4 }
+  test ":test help menu returned in case of invalid arguments" do 
+    assert  parse_args(["firstName", "lastName", "lastnameagin"]) == :help
   end 
 end 
