@@ -42,13 +42,6 @@ defmodule Doctors.MedregomDoctors do
     json["rows"]
   end
   
-
-    { 
-      status |> check_for_error(),
-      body |> Poison.Parser.parse!()
-    }  
-  end
-
   defp check_for_error(200), do: :ok
   defp check_for_error(_), do: :error
 
