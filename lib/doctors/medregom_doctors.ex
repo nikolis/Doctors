@@ -18,7 +18,6 @@ defmodule Doctors.MedregomDoctors do
       |> Poison.Parser.parse!()
       |> handle_doctor_details_extraction()
       |> extract_first_and_last_name()
-       
   end
 
 
@@ -44,6 +43,11 @@ defmodule Doctors.MedregomDoctors do
   end
   
 
+    { 
+      status |> check_for_error(),
+      body |> Poison.Parser.parse!()
+    }  
+  end
 
   defp check_for_error(200), do: :ok
   defp check_for_error(_), do: :error
