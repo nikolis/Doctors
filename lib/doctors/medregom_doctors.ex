@@ -17,8 +17,7 @@ defmodule Doctors.MedregomDoctors do
   end
 
   def handle_response({_, %{status_code: status, body: body}})do
-    status |> check_for_error()
-    result = 
+    status |> check_for_error() 
       body 
       |> Poison.Parser.parse!()
       |> handle_doctor_details_extraction()
